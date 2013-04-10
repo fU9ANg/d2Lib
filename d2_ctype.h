@@ -5,7 +5,7 @@
  */
 
 #ifndef _D2_CTYPE_H_INCLUDED
-#ifndef _D2_CTYPE_H_INCLUDED
+#define _D2_CTYPE_H_INCLUDED
 
 
 #define     LOW     0x01                    // lower

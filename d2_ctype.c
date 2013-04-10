@@ -4,7 +4,7 @@
  *  bb.newlife@gmail.com
  */
 
-#include <d2_type.h>
+#include <d2_ctype.h>
 
 /*
 +num+alpha+upper+lower+digit+xdigit+space+punct+alnum+print+cntrl+ascii+char+
