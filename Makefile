@@ -24,7 +24,8 @@ MAINFLAG =  -D_BASE_STANDALONE  \
             -D_TEST_STRSTR_MAIN \
             -D_CRC8_STANDALONE  \
             -D_CRC16_STANDALONE \
-            -D_CRC32_STANDALONE
+            -D_CRC32_STANDALONE \
+            -D_PRINT_STANDALONE
 
 # options for development
 CFLAGS   =  $(INCLUDES) -g -Wall $(MAINFLAG)
@@ -40,10 +41,12 @@ D2_STRING_OBJS  = d2_string.o d2_ctype.o
 D2_STRING_TEST  = tst_d2_string
 D2_CRC8_OBJS    = d2_crc8.o
 D2_CRC8_TEST    = tst_d2_crc8
-D2_CRC16_OBJS    = d2_crc16.o
-D2_CRC16_TEST    = tst_d2_crc16
-D2_CRC32_OBJS    = d2_crc32.o
-D2_CRC32_TEST    = tst_d2_crc32
+D2_CRC16_OBJS   = d2_crc16.o
+D2_CRC16_TEST   = tst_d2_crc16
+D2_CRC32_OBJS   = d2_crc32.o
+D2_CRC32_TEST   = tst_d2_crc32
+D2_PRINTF_OBJS  = d2_printf.o
+D2_PRINTF_TEST  = tst_d2_print
 
 all:    $(D2_STRING_TEST)   \
         $(D2_BM_TEST)       \
@@ -51,7 +54,8 @@ all:    $(D2_STRING_TEST)   \
         $(D2_BASE_TEST)     \
         $(D2_CRC8_TEST)     \
         $(D2_CRC16_TEST)    \
-        $(D2_CRC32_TEST)
+        $(D2_CRC32_TEST)    \
+        $(D2_PRINTF_TEST)
 
 $(D2_BM_TEST):$(D2_BM_OBJS)
 	$(CC) $(CFLAGS) $(LIB) $(D2_BM_OBJS)   -o $@ $(LINKS)
@@ -67,6 +71,8 @@ $(D2_CRC16_TEST):$(D2_CRC16_OBJS)
 	$(CC) $(CFLAGS) $(LIB) $(D2_CRC16_OBJS) -o $@ $(LINKS)
 $(D2_CRC32_TEST):$(D2_CRC32_OBJS)
 	$(CC) $(CFLAGS) $(LIB) $(D2_CRC32_OBJS) -o $@ $(LINKS)
+$(D2_PRINTF_TEST):$(D2_PRINTF_OBJS)
+	$(CC) $(CFLAGS) $(LIB) $(D2_PRINTF_OBJS) -o $@ $(LINKS)
 
 %.o:%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
