@@ -36,7 +36,7 @@ static const char tblBase64[] =
 };
 
 
-#include    "base64.h"
+#include    "d2_base64.h"
 /*
  * =====================
  * FuncName   : enBase64
